@@ -1,0 +1,19 @@
+* {
+    font-family: "Roya";
+}
+
+.time {
+    height: 38px !important;
+}
+
+img {
+    width:inherit;
+}
+
+.item 
+{
+    width: 445px;
+    float: left;
+    margin: 3px;
+    padding: 3px;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>صفحه ی چک اپراتوری سرعت متوسط</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="apple-touch-icon" sizes="76x76" href="views/images/logo.png">
+  <link rel="icon" type="image/png" href="views/images/logo.png">
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/popper.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+
+  <!-- date picker -->
+  <link rel="stylesheet" href="lib/datePicker/kamadatepicker.css">
+  <link rel="stylesheet" href="lib/clockPicker/bootstrap-clockpicker.css">
+  <script src="lib/datePicker/kamadatepicker.js"></script>
+  <script src="lib/clockPicker/bootstrap-clockpicker.js"></script>
+  <!-- fonts -->
+  <link rel="stylesheet" href="views/fonts/fonts.css">
+  <!-- unique css-->
+  <link rel="stylesheet" href="views/styles/index.css">
+  <!-- font awesome -->
+  <script src="lib/font-awesome/all.min.js"></script>
+</head>
+<body>
+  
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="row" id="times">
+            <div class="col-sm-6">
+                <div class="input-group mb-3 input-group-sm">
+                    <input type="text" class="form-control time" id="endTime">
+                    <div class="input-group-append">
+                     <span class="input-group-text">ساعت پایان</span>
+                    </div>
+
+                    <input type="text" class="form-control" id="endDate" autocomplete="off">
+                    <div class="input-group-append">
+                     <span class="input-group-text">تاریخ پایان</span>
+                    </div>
+                    
+                 </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="input-group mb-3 input-group-sm">
+                    <input type="text" class="form-control time" id="startTime">
+                    <div class="input-group-append">
+                     <span class="input-group-text">ساعت شروع</span>
+                    </div>
+
+                    <input type="text" class="form-control" id="startDate" autocomplete="off">
+                    <div class="input-group-append">
+                     <span class="input-group-text">تاریخ شروع</span>
+                    </div>
+                    
+                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div class="row" id="inputs">
+            
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-outline-success btn-block"><i class="fas fa-search"></i> کنکاشت</button>
+            </div>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-outline-info btn-block"><i class="fas fa-question-circle"></i> تعداد</button>
+            </div>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-outline-secondary btn-block">??????</button>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="input-group mb-3 input-group-sm">
+                    
+                    <input type="text" class="form-control time" id="startTime">
+                    <div class="input-group-append">
+                     <span class="input-group-text">زمان با ارزش بر حسب ثانیه</span>
+                    </div>
+
+                    <input type="text" class="form-control time" id="startTime">
+                    <div class="input-group-append">
+                     <span class="input-group-text">زمان جریمه بر حسب ثانیه</span>
+                    </div>
+                    
+                 </div>
+            </div>
+            
+
+
+        </div>
+    </div>
+    <div class="col-sm-12 mt-3">
+        <div class="row">
+            <div class="col-sm-5" id="start">
+                <p class="text-center">تصویر مبدا</p>
+                <div class="item text-center"><img class="" src="pic.jpg"></div>
+            </div>
+            <div class="col-sm-5" id="end">
+                <p class="text-center">تصویر مقصد</p>
+                
+                <div class="item text-center"><img class="" src="pic.jpg"></div>
+            </div>
+            <div class="col-sm-2">
+                <p class="text-center">اطلاعات</p>
+                <table class="table table-light">
+                    <!-- <thead>
+                      <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                      </tr>
+                    </thead> -->
+                    <tbody>
+                      <tr>
+                        <td>زمان برحسب ثانیه</td>
+                        <td>۴۵۳</td>
+                      </tr>
+                      <tr>
+                        <td>تاریخ</td>
+                        <td>Moe</td>
+                      </tr>
+                      <tr>
+                        <td>زمان گذر از مبدا</td>
+                        <td>Dooley</td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    kamaDatepicker('startDate',  {
+        buttonsColor: "red",
+        markToday: true,
+        markHolidays: true,
+        sync: true
+    });
+    kamaDatepicker('endDate',  {
+        buttonsColor: "red",
+        markToday: true,
+        markHolidays: true,
+        sync: true
+    });
+</script>
+<script>
+    
+    $('#startTime').clockpicker({
+        autoclose: true
+    });
+    $('#endTime').clockpicker({
+        autoclose: true
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+/* @font-face {
+    font-family: "Yekan";
+    font-style: normal;
+    font-weight: 100;
+    src: url("Yekan.ttf") format("ttf");
+  } */
+
+
+
+@font-face {
+  font-family: "Roya";
+  font-weight: bold;
+  src: url("BRoyaBold.woff2") format("woff2"), url("BRoyaBold.woff") format("woff");
+}

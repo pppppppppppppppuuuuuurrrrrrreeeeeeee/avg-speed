@@ -64,7 +64,7 @@
         <div class="row" id="inputs">
             
             <div class="col-sm-3">
-                <button type="button" class="btn btn-outline-success btn-block"><i class="fas fa-search"></i> کنکاشت</button>
+                <button type="button" onclick="process()" class="btn btn-outline-success btn-block"><i class="fas fa-search"></i> کنکاشت</button>
             </div>
             <div class="col-sm-3">
                 <button type="button" class="btn btn-outline-info btn-block"><i class="fas fa-question-circle"></i> تعداد</button>
@@ -73,12 +73,14 @@
             <div class="col-sm-6">
                 <div class="input-group mb-3 input-group-sm">
                     
+                    <!-- <input type="hidden" id="count" value="40"> -->
+
                     <input type="number" class="form-control time" id="t1">
                     <div class="input-group-append">
-                     <span class="input-group-text">زمان با ارزش بر حسب ثانیه</span>
+                     <span class="input-group-text">بیشینه زمان تردد بر حسب ثانیه</span>
                     </div>
 
-                    <input type="number" class="form-control time" id="t2">
+                    <input type="number" class="form-control time" id="t0">
                     <div class="input-group-append">
                      <span class="input-group-text">زمان جریمه بر حسب ثانیه</span>
                     </div>
@@ -116,6 +118,7 @@
                         <th>زمان گذر از مقصد</th>
                         <th>لاین مبدا</th>
                         <th>لاین مقصد</th>
+                        <th>وضعیت</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -126,6 +129,7 @@
                         <td>12:34:32</td>
                         <td>2</td>
                         <td>3</td>
+                        <td>جریمه</td>
                     </tr>
                 </tbody>
             </table>
@@ -166,34 +170,15 @@
     
   </div>
 </div>
+<script src="views/scripts/timeFuncs.js"></script>
+<script src="views/scripts/time.js"></script>
+<script src="controller/process.js"></script>
 <script>
     setInterval(function() {
         $('.toast').toast('show');
     }, 1500);
 </script>
 
-<script>
-    kamaDatepicker('startDate',  {
-        buttonsColor: "red",
-        markToday: true,
-        markHolidays: true,
-        sync: true
-    });
-    kamaDatepicker('endDate',  {
-        buttonsColor: "red",
-        markToday: true,
-        markHolidays: true,
-        sync: true
-    });
-</script>
-<script>
-    
-    $('#startTime').clockpicker({
-        autoclose: true
-    });
-    $('#endTime').clockpicker({
-        autoclose: true
-    });
-</script>
+
 </body>
 </html>

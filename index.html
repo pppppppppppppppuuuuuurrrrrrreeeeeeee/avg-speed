@@ -63,25 +63,22 @@
     <div class="col-sm-12">
         <div class="row" id="inputs">
             
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <button type="button" class="btn btn-outline-success btn-block"><i class="fas fa-search"></i> کنکاشت</button>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <button type="button" class="btn btn-outline-info btn-block"><i class="fas fa-question-circle"></i> تعداد</button>
-            </div>
-            <div class="col-sm-2">
-                <button type="button" class="btn btn-outline-secondary btn-block">??????</button>
             </div>
 
             <div class="col-sm-6">
                 <div class="input-group mb-3 input-group-sm">
                     
-                    <input type="text" class="form-control time" id="startTime">
+                    <input type="number" class="form-control time" id="t1">
                     <div class="input-group-append">
                      <span class="input-group-text">زمان با ارزش بر حسب ثانیه</span>
                     </div>
 
-                    <input type="text" class="form-control time" id="startTime">
+                    <input type="number" class="form-control time" id="t2">
                     <div class="input-group-append">
                      <span class="input-group-text">زمان جریمه بر حسب ثانیه</span>
                     </div>
@@ -93,46 +90,87 @@
 
         </div>
     </div>
-    <div class="col-sm-12 mt-3">
-        <div class="row">
-            <div class="col-sm-5" id="start">
-                <p class="text-center">تصویر مبدا</p>
-                <div class="item text-center"><img class="" src="pic.jpg"></div>
+
+    <div class="col-sm-12">
+        <div class="toast center" data-autohide="false">
+            <div class="toast-header float-right">
+                <div class="spinner-grow" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
             </div>
-            <div class="col-sm-5" id="end">
-                <p class="text-center">تصویر مقصد</p>
-                
-                <div class="item text-center"><img class="" src="pic.jpg"></div>
-            </div>
-            <div class="col-sm-2">
-                <p class="text-center">اطلاعات</p>
-                <table class="table table-light">
-                    <!-- <thead>
-                      <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                      </tr>
-                    </thead> -->
-                    <tbody>
-                      <tr>
-                        <td>زمان برحسب ثانیه</td>
-                        <td>۴۵۳</td>
-                      </tr>
-                      <tr>
-                        <td>تاریخ</td>
-                        <td>Moe</td>
-                      </tr>
-                      <tr>
-                        <td>زمان گذر از مبدا</td>
-                        <td>Dooley</td>
-                      </tr>
-                    </tbody>
-                </table>
+            <div class="toast-body float-right">
+              <b>ایکس</b> رکورد یافت شد  !
             </div>
         </div>
     </div>
+
+    <div class="hide" id="content">
+        <div class="col-sm-12">
+            <!-- <p class="text-center">اطلاعات</p> -->
+            <table class="table table-bordered info">
+                <thead>
+                    <tr>
+                        <th>اختلاف زمان برحسب ثانیه</th>
+                        <th>تاریخ</th>
+                        <th>زمان گذر از مبدا</th>
+                        <th>زمان گذر از مقصد</th>
+                        <th>لاین مبدا</th>
+                        <th>لاین مقصد</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>۴۵۳</td>
+                        <td>1399/05/32</td>
+                        <td>12:45:32</td>
+                        <td>12:34:32</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-5" id="start">
+                    <p class="text-center">تصویر مبدا</p>
+                    <div class="item text-center"><img class="" src="pic.jpg"></div>
+                </div>
+                <div class="col-sm-5" id="end">
+                    <p class="text-center">تصویر مقصد</p>
+                    <div class="item text-center"><img class="" src="pic.jpg"></div>
+                </div>
+                <div class="col-sm-2" id="btns"> 
+                    <p class="text-center">&nbsp;</p>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="h4 count">34 / 342</p> 
+                        </div>
+                        <div class="col-12">
+                            <div class="btn-group special">
+                                <button type="button" class="btn btn-info half"><i class="fas fa-backward"></i> قبل</button>
+                                <button type="button" class="btn btn-primary half">بعد <i class="fas fa-forward"></i></button>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-block btn-success"><i class="fas fa-share"></i> ارسال به پلیس</button>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-block btn-danger"><i class="fas fa-bug"></i> گزارش</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
   </div>
 </div>
+<script>
+    setInterval(function() {
+        $('.toast').toast('show');
+    }, 1500);
+</script>
 
 <script>
     kamaDatepicker('startDate',  {

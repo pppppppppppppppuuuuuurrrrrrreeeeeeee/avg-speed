@@ -12,8 +12,64 @@ img {
 
 .item 
 {
-    width: 445px;
-    float: left;
-    margin: 3px;
-    padding: 3px;
+    width: 97%;
+    margin: auto;
+}
+
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+div.col-12 {
+    margin: 10px 0 10px 0;
+}
+
+.half {
+    display: block;
+    width: 45% !important;
+}
+
+.btn-group.special {
+    display: flex;
+  }
+
+.center {
+    margin: auto;
+    display: block;
+    width: 30%;
+}
+
+.toast-header{
+    border-bottom: 0;
+}
+
+.toast-body {
+    direction: rtl;
+}
+
+.count{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.info {
+    text-align: center;
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

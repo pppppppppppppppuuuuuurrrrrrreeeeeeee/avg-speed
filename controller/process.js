@@ -15,6 +15,21 @@ function process() {
     endDate = endDate.split('/');
     endDate = jalaliToGregorian(endDate[0], endDate[1], endDate[2], '-'); 
 
+    console.log('startDate');
+    console.log(startDate);
+    console.log('startTime');
+    console.log(startTime);
+    console.log('endDate');
+    console.log(endDate);
+    console.log('endTime');
+    console.log(endTime);
+
+    console.log('t0');
+    console.log(t0);
+
+    console.log('t1');
+    console.log(t1);
+
     $.post('./model/data.php', {
         startDate: startDate,
         startTime: startTime,

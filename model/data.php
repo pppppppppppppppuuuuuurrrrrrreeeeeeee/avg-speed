@@ -1,6 +1,6 @@
 <?php
 require __DIR__.'/config.php';
-// require __DIR__.'/ChromePHP.php';
+require __DIR__.'/ChromePHP.php';
 
 $startDate = $_POST['startDate'];
 $startTime = $_POST['startTime'];
@@ -29,6 +29,7 @@ function getMabda() {
     $all = [];
     ///camera id mabda
     $sql = "SELECT PlateValue, PassedTime, ImageAddress FROM `PassedVehicleRecords` WHERE CameraID = 23343284 AND $timeQuery";
+    ChromePhp::log('mabda query : '.$sql);
     $res = $conn->query($sql);
     if($res->num_rows > 0) {
         while($row = $res->fetch_assoc()) {
@@ -50,6 +51,7 @@ foreach(getMabda() as $rec) {
     
     ///camera id maqsad 
     $sql = "SELECT PassedTime, ImageAddress FROM `PassedVehicleRecords` WHERE CameraID = 23343285 AND PlateValue = '$plate' AND PassedTime LIKE '$date%'";
+    ChromePhp::log('maqsad query : '.$sql);
     $res = $conn->query($sql);
 
     if($res->num_rows > 0) {
@@ -83,8 +85,10 @@ foreach(getMabda() as $rec) {
                     file_put_contents('../count.txt', $c);
                     //append json
                     $json[] = $obj;
+
+                    ChromePhp::log("$plate    $date     mabda: $time"."     maqsad: "."$timeMaq       min diff : $minDiff".PHP_EOL);
+
                 }
-                // ChromePhp::log("$plate    $date     mabda: $time"."     maqsad: "."$timeMaq       min diff : $minDiff".PHP_EOL);
             }
         }
     }

@@ -1,4 +1,10 @@
+function setCount(x) {
+    document.getElementById('toastCount').innerHTML = `<b>${x}</b> رکورد یافت شد  !`;
+}
+
 function process() {
+    var si;
+
     let startDate = document.getElementById('startDate').value;
     let startTime = document.getElementById('startTime').value;
 
@@ -15,20 +21,12 @@ function process() {
     endDate = endDate.split('/');
     endDate = jalaliToGregorian(endDate[0], endDate[1], endDate[2], '-'); 
 
-    console.log('startDate');
-    console.log(startDate);
-    console.log('startTime');
-    console.log(startTime);
-    console.log('endDate');
-    console.log(endDate);
-    console.log('endTime');
-    console.log(endTime);
+    //active toast count and deactive content
+    document.getElementById('toast').classList.remove('hide');
+    document.getElementById('toast').classList.add('show');
 
-    console.log('t0');
-    console.log(t0);
-
-    console.log('t1');
-    console.log(t1);
+    document.getElementById('content').classList.remove('show');
+    document.getElementById('content').classList.add('hide');
 
     $.post('./model/data.php', {
         startDate: startDate,
@@ -37,9 +35,23 @@ function process() {
         endTime: endTime,
         t0: t0,
         t1: t1
-        // count: count
     }, function(data) {
+        clearInterval(si);
+        //active content and deactive toast
+        document.getElementById('content').classList.remove('hide');
+        document.getElementById('content').classList.add('show');
+
+        document.getElementById('toast').classList.remove('show');
+        document.getElementById('toast').classList.add('hide');
+
         jsonData = JSON.parse(data);
         console.log(jsonData);
     });
+
+
+    si = setInterval(function(){
+        $.get('./count.txt', function(data) {
+            setCount(data);
+        });
+    }, 2000);
 }

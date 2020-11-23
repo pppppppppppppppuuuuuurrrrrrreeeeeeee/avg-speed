@@ -73,8 +73,6 @@
             <div class="col-sm-6">
                 <div class="input-group mb-3 input-group-sm">
                     
-                    <!-- <input type="hidden" id="count" value="40"> -->
-
                     <input type="number" class="form-control time" id="t1">
                     <div class="input-group-append">
                      <span class="input-group-text">بیشینه زمان تردد بر حسب ثانیه</span>
@@ -93,22 +91,20 @@
         </div>
     </div>
 
-    <div class="col-sm-12">
+    <div class="col-sm-12 hide" id="toast">
         <div class="toast center" data-autohide="false">
             <div class="toast-header float-right">
                 <div class="spinner-grow" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
             </div>
-            <div class="toast-body float-right">
-              <b>ایکس</b> رکورد یافت شد  !
+            <div class="toast-body float-right" id="toastCount">
             </div>
         </div>
     </div>
 
     <div class="hide" id="content">
         <div class="col-sm-12">
-            <!-- <p class="text-center">اطلاعات</p> -->
             <table class="table table-bordered info">
                 <thead>
                     <tr>
@@ -123,13 +119,13 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>۴۵۳</td>
-                        <td>1399/05/32</td>
-                        <td>12:45:32</td>
-                        <td>12:34:32</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>جریمه</td>
+                        <td id="tdDeltaT"></td>
+                        <td id="tdDate"></td>
+                        <td id="tdMabda"></td>
+                        <td id="tdMaqsad"></td>
+                        <td id="tdMabdaLane"></td>
+                        <td id="tdMaqsadLane"></td>
+                        <td id="tdStatus"></td>
                     </tr>
                 </tbody>
             </table>

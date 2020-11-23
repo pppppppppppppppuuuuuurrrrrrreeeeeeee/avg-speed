@@ -1,16 +1,24 @@
 <?php
 require __DIR__.'/config.php';
-require __DIR__.'/ChromePHP.php';
+// require __DIR__.'/ChromePHP.php';
 
 $startDate = $_POST['startDate'];
 $startTime = $_POST['startTime'];
 $endDate = $_POST['endDate'];
 $endTime = $_POST['endTime'];
 
+// $startDate = "2020-11-21";
+// $startTime = "00:00:00";
+// $endDate = "2020-11-22";
+// $endTime = "00:00:00";
+
 $timeQuery = "PassedTime >= '$startDate $startTime' AND PassedTime <= '$endDate $endTime'";
 
 $t0 = (int)$_POST['t0'];
 $t1 = (int)$_POST['t1'];
+// $t0 = 1200;
+// $t1 = 1200;
+
 if($t1 > $t0) {
     $ft = $t1;
 } else {
@@ -28,8 +36,8 @@ function getMabda() {
     global $conn, $timeQuery;
     $all = [];
     ///camera id mabda
-    $sql = "SELECT PlateValue, PassedTime, ImageAddress FROM `PassedVehicleRecords` WHERE CameraID = 23343284 AND $timeQuery";
-    ChromePhp::log('mabda query : '.$sql);
+    $sql = "SELECT PlateValue, PassedTime, ImageAddress FROM `PassedVehicleRecords` WHERE CameraID IN (22061450, 23179923) AND $timeQuery";
+    // ChromePhp::log('mabda query : '.$sql);
     $res = $conn->query($sql);
     if($res->num_rows > 0) {
         while($row = $res->fetch_assoc()) {
@@ -42,6 +50,8 @@ function getMabda() {
 
 $json = [];
 $c = 0;
+file_put_contents('../count.txt', $c);
+
 foreach(getMabda() as $rec) {
     $exp = explode(' ', $rec[1]);
     $plate = $rec[0];
@@ -50,8 +60,8 @@ foreach(getMabda() as $rec) {
     $startPic = $rec[2];
     
     ///camera id maqsad 
-    $sql = "SELECT PassedTime, ImageAddress FROM `PassedVehicleRecords` WHERE CameraID = 23343285 AND PlateValue = '$plate' AND PassedTime LIKE '$date%'";
-    ChromePhp::log('maqsad query : '.$sql);
+    $sql = "SELECT PassedTime, ImageAddress FROM `PassedVehicleRecords` WHERE CameraID IN (23521033) AND PlateValue = '$plate' AND PassedTime LIKE '$date%'";
+    // ChromePhp::log('maqsad query : '.$sql);
     $res = $conn->query($sql);
 
     if($res->num_rows > 0) {
@@ -86,7 +96,8 @@ foreach(getMabda() as $rec) {
                     //append json
                     $json[] = $obj;
 
-                    ChromePhp::log("$plate    $date     mabda: $time"."     maqsad: "."$timeMaq       min diff : $minDiff".PHP_EOL);
+                    // echo "$plate    $date     mabda: $time"."     maqsad: "."$timeMaq       min diff : $minDiff".PHP_EOL;
+                    // ChromePhp::log("$plate    $date     mabda: $time"."     maqsad: "."$timeMaq       min diff : $minDiff".PHP_EOL);
 
                 }
             }
